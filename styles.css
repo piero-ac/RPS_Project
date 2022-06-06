@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+.img-placeholder {
+    width: 250px;
+    height: 250px;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.choice-button {
+    min-width: 115px;
+    height: 40px;
+    font-size: 25px;
+}
