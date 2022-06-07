@@ -71,12 +71,6 @@ header > h1 {
 }
 /* Visual Styling for Elements - End */
 
-/* Game Container - Start */
-/* #game-container {
-    display: flex;
-    flex-flow: column nowrap;
-} */
-
 /* Game Visuals Container - Start */
 #game-visuals-container {
     display: flex;
@@ -85,13 +79,6 @@ header > h1 {
     align-items: center;
     text-align: center;
 }
-/* .players-containers {
-    min-width: 400px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}  */
-
 /* Game Visuals Container - End */
 
 /* Game Interactivity Container - Start */
@@ -100,14 +87,6 @@ header > h1 {
     flex-flow: column nowrap;
     margin-top: 20px;
 }
-
-/* Results Container - Start */
-/* #results-container {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 5px;
-} */
-/* Results Container - End */
 
 /* Choices Container - Start*/
 #choices-container {
@@ -119,7 +98,6 @@ header > h1 {
 /* Choices Container - End */
 
 /* Game Interactivity Container - End */
-/* Game Container - End */
 
 /* Things to do when the screen is larger than 768px */
 @media only screen and (min-width: 768px) {
