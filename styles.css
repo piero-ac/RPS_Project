@@ -5,8 +5,15 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+:root {
+    --lightest-blue: rgb(179, 232, 229);
+    --light-blue: rgb(130, 219, 216);
+    --dark-blue: rgb(59, 172, 182);
+    --darkest-blue: rgb(47, 143, 157);
+}
+
 body {
-    background-color: aquamarine;
+    background-color: var(--lightest-blue);
 }
 
 .img-placeholder {
@@ -21,6 +28,10 @@ body {
     min-width: 6rem;
     height: 3rem;
     font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color: var(--lightest-blue);
+    
 }
 header {
     margin-top: 1rem;
@@ -29,6 +40,7 @@ header > h1 {
     font-size: 3.6rem;
     text-align: center;
     line-height: 90%;
+    color: darkcyan;
 }
 
 .score {
@@ -41,6 +53,7 @@ header > h1 {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .players-containers {
@@ -53,6 +66,7 @@ header > h1 {
 #game-visuals-container > p {
     font-size: 3rem;
     margin: 5px;
+    color: darkcyan;
 }
 
 #game-interactivity-container {
