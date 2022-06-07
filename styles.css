@@ -14,78 +14,135 @@
 
 body {
     background-color: var(--lightest-blue);
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
-.img-placeholder {
-    width: 225px;
-    height: 225px;
-    background-color: grey;
-    border: 1px solid black;
-    border-radius: 5px;
-}
 
-.choice-button {
-    min-width: 6rem;
-    height: 3rem;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    background-color: darkcyan;
-    color: var(--lightest-blue);
-    
-}
 header {
     margin-top: 1rem;
 }
 header > h1 {
-    font-size: 3.6rem;
+    font-size: 13vw;
     text-align: center;
     line-height: 90%;
     color: darkcyan;
 }
 
-.score {
-    font-size: 3rem; 
+/* Visual Styling for Elements - Start */
+.score-label-styling {
+    font-size: clamp(1rem, 10vw, 4rem); 
 }
 
-#game-visuals-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+.choice-button-styling {
+    min-width: clamp(50px, 20vw + 20px, 150px);
+    height: 50px;
+    font-size: clamp(1rem, 2rem, 4rem);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: darkcyan;
+    color: var(--lightest-blue);  
 }
 
-.players-containers {
-    min-width: 400px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.img-container{
+    width: clamp(150px, 20vw, 300px);
+    height: auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
 }
-
+.img-container img {
+    width: 100%;
+    height: 100%;
+}
 #game-visuals-container > p {
     font-size: 3rem;
     margin: 5px;
     color: darkcyan;
+    text-align: center;
 }
 
+#results-container > p {
+    font-size: clamp(1rem, 10vw, 4rem);
+    text-align: center;
+    line-height: 90%;
+}
+/* Visual Styling for Elements - End */
+
+/* Game Container - Start */
+/* #game-container {
+    display: flex;
+    flex-flow: column nowrap;
+} */
+
+/* Game Visuals Container - Start */
+#game-visuals-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* .players-containers {
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}  */
+
+/* Game Visuals Container - End */
+
+/* Game Interactivity Container - Start */
 #game-interactivity-container {
     display: flex;
     flex-flow: column nowrap;
+    margin-top: 20px;
 }
 
-#results-container {
+/* Results Container - Start */
+/* #results-container {
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 5px;
-}
+} */
+/* Results Container - End */
 
+/* Choices Container - Start*/
 #choices-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     gap: 15px;
 }
+/* Choices Container - End */
 
+/* Game Interactivity Container - End */
+/* Game Container - End */
 
+/* Things to do when the screen is larger than 768px */
+@media only screen and (min-width: 768px) {
+    header {
+        margin-top: 50px;
+    }
+
+    #game-visuals-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+        margin-top: 60px;
+    }
+
+    #game-interactivity-container {
+        margin-top: 50px;
+    }
+
+    #choices-container {
+        margin-top: 20px;
+    }
+} 
 
