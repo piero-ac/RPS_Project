@@ -48,7 +48,7 @@ header > h1 {
 
 .img-container{
     width: clamp(150px, 20vw, 300px);
-    height: auto;
+    height: clamp(150px, 20vw, 300px);
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
