@@ -1,5 +1,21 @@
 const choices = ['Rock', 'Paper', 'Scissors'];
 
+// Image Containers
+const playerImgContainer = document.querySelector("#player-img-container");
+const cpuImgContainer = document.querySelector("#cpu-img-container");
+
+// Score Displays
+const playerScore = document.querySelector("#player-score");
+const cpuScore = document.querySelector("#cpu-score");
+
+// Game and Match Results Display
+const resultsDisplay = document.querySelector("#results-container").firstChild();
+
+// Buttons for Choices
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
 // function return a choice between rock, paper, or scissors
 function computerPlay(){
     //return a number between 0 and 2 (inclusive)
@@ -56,4 +72,4 @@ function game(){
     console.log(determineWinner(playerWins, computerWins));
 }
 
-game();
+
