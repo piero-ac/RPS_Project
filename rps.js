@@ -18,7 +18,7 @@ const scissorsButton = document.querySelector("#scissors");
 
 // Counters
 let playerWins = 0;
-let computerWins = 0;
+let cpuWins = 0;
 
 //Add event listeners for buttons
 rockButton.addEventListener('click', function() {
@@ -32,51 +32,57 @@ scissorsButton.addEventListener('click', function() {
 });
 
 // function return a choice between rock, paper, or scissors
-function computerPlay(){
+function cpuPlay(){
     //return a number between 0 and 2 (inclusive)
     const choice = Math.floor(Math.random() * 3);
     return choices[choice];
 }
 
 function playRound(playerSelection){
-    let computerSelection = computerPlay();
+    let cpuSelection = cpuPlay();
 
     if(playerSelection == 'Rock'){
-        if(computerSelection == 'Rock') resultsDisplay.innerText = "Tie!";
-        else if(computerSelection == 'Scissors') {
+        if(cpuSelection == 'Rock') resultsDisplay.innerText = "Tie!";
+        else if(cpuSelection == 'Scissors') {
             resultsDisplay.innerText = "Rock beats Scissors. You +1";
             playerWins++;
+            playerScore.innerText = `You: ${playerWins}`;
         }
-        else if(computerSelection == 'Paper') {
+        else if(cpuSelection == 'Paper') {
             resultsDisplay.innerText = "Paper beats Rock. CPU +1";
-            computerWins++;
+            cpuWins++;
+            cpuScore.innerText = `CPU: ${cpuWins}`;
         }
     } else if(playerSelection == 'Paper'){
-        if(computerSelection == 'Paper') resultsDisplay.innerText = "Tie!";
-        else if(computerSelection == 'Rock') {
+        if(cpuSelection == 'Paper') resultsDisplay.innerText = "Tie!";
+        else if(cpuSelection == 'Rock') {
             resultsDisplay.innerText = "Paper beats Rock. You +1";
             playerWins++;
+            playerScore.innerText = `You: ${playerWins}`;
         }       
-        else if(computerSelection == 'Scissors') {
+        else if(cpuSelection == 'Scissors') {
             resultsDisplay.innerText = "Scissors beats Paper. CPU +1";
-            computerWins++;
+            cpuWins++;
+            cpuScore.innerText = `CPU: ${cpuWins}`;
         }
     } else if(playerSelection = 'Scissors'){
-        if(computerSelection == 'Scissors') resultsDisplay.innerText = "Tie!";
-        else if(computerSelection == 'Paper') {
+        if(cpuSelection == 'Scissors') resultsDisplay.innerText = "Tie!";
+        else if(cpuSelection == 'Paper') {
             resultsDisplay.innerText = "Scissors beats Paper. You +1";
             playerWins++;
+            playerScore.innerText = `You: ${playerWins}`;
         }
-        else if(computerSelection == 'Rock') {
+        else if(cpuSelection == 'Rock') {
             resultsDisplay.innerText = "Rock beats Scissors. CPU +1";
-            computerWins++;
+            cpuWins++;
+            cpuScore.innerText = `CPU: ${cpuWins}`;
         }
     }
 }
 
-function determineWinner(playerWins, computerWins) {
-    if(playerWins > computerWins) return "Player wins the game!";
-    else if(computerWins > playerWins) return "Computer wins the game!";
+function determineWinner(playerWins, cpuWins) {
+    if(playerWins > cpuWins) return "Player wins the game!";
+    else if(cpuWins > playerWins) return "cpu wins the game!";
     else return "Game ends in a Tie!";
 }
 
@@ -84,24 +90,24 @@ function game(){
 
     // Count each player's wins
     let playerWins = 0;
-    let computerWins = 0;
+    let cpuWins = 0;
 
     for(let i = 1; i <= 5; i++){
         console.log(`Round ${i}`); // Display round number
         let input = prompt("Enter a choice: ");
-        let result = playRound(input, computerPlay());
+        let result = playRound(input, cpuPlay());
         
         console.log(result[0]); //Display the result
 
         // Determine the round winner
         if(result[1] == 1) playerWins++;
-        else if(result[1] == -1) computerWins++;
+        else if(result[1] == -1) cpuWins++;
         else continue;
     }
 
     // Determine the game winner
     console.log("***Game Results***")
-    console.log(determineWinner(playerWins, computerWins));
+    console.log(determineWinner(playerWins, cpuWins));
 }
 
 
