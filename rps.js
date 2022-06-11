@@ -16,10 +16,20 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
+// Counters
+let playerWins = 0;
+let computerWins = 0;
+
 //Add event listeners for buttons
-rockButton.addEventListener('click', playRound(rockButton.value, computerPlay));
-paperButton.addEventListener('click', playRound(paperButton.value, computerPlay));
-scissorsButton.addEventListener('click', playRound(scissorsButton.value, computerPlay));
+rockButton.addEventListener('click', function() {
+    playRound(rockButton.value);
+});
+paperButton.addEventListener('click', function() {
+    playRound(paperButton.value);
+});
+scissorsButton.addEventListener('click', function() {
+   playRound(scissorsButton.value); 
+});
 
 // function return a choice between rock, paper, or scissors
 function computerPlay(){
@@ -28,21 +38,39 @@ function computerPlay(){
     return choices[choice];
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
+    let computerSelection = computerPlay();
 
-    // 0 : tie, 1 : player wins, -1 : computer wins
-    if(playerSelection == 'rock'){
-        if(computerSelection == 'Rock') return ["Tie!", 0];
-        else if(computerSelection == 'Scissors') return ["You Win! Rock beats Scissors", 1];
-        else if(computerSelection == 'Paper') return ["You Lose! Paper beats Rock", -1];
-    } else if(playerSelection == 'paper'){
-        if(computerSelection == 'Paper') return ["Tie!", 0];
-        else if(computerSelection == 'Rock') return ["You Win! Paper beats Rock", 1];
-        else if(computerSelection == 'Scissors') return ["You Lose! Scissors beats Paper", -1];
-    } else if(playerSelection = 'scissors'){
-        if(computerSelection == 'Scissors') return ["Tie!", 0];
-        else if(computerSelection == 'Paper') return ["You Win! Scissors beats Paper", 1];
-        else if(computerSelection == 'Rock') return ["You Lose! Rock beats Scissors", -1];
+    if(playerSelection == 'Rock'){
+        if(computerSelection == 'Rock') resultsDisplay.innerText = "Tie!";
+        else if(computerSelection == 'Scissors') {
+            resultsDisplay.innerText = "Rock beats Scissors. You +1";
+            playerWins++;
+        }
+        else if(computerSelection == 'Paper') {
+            resultsDisplay.innerText = "Paper beats Rock. CPU +1";
+            computerWins++;
+        }
+    } else if(playerSelection == 'Paper'){
+        if(computerSelection == 'Paper') resultsDisplay.innerText = "Tie!";
+        else if(computerSelection == 'Rock') {
+            resultsDisplay.innerText = "Paper beats Rock. You +1";
+            playerWins++;
+        }       
+        else if(computerSelection == 'Scissors') {
+            resultsDisplay.innerText = "Scissors beats Paper. CPU +1";
+            computerWins++;
+        }
+    } else if(playerSelection = 'Scissors'){
+        if(computerSelection == 'Scissors') resultsDisplay.innerText = "Tie!";
+        else if(computerSelection == 'Paper') {
+            resultsDisplay.innerText = "Scissors beats Paper. You +1";
+            playerWins++;
+        }
+        else if(computerSelection == 'Rock') {
+            resultsDisplay.innerText = "Rock beats Scissors. CPU +1";
+            computerWins++;
+        }
     }
 }
 
