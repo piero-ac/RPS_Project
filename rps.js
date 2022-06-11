@@ -19,6 +19,7 @@ const scissorsButton = document.querySelector("#scissors");
 // Counters
 let playerWins = 0;
 let cpuWins = 0;
+let round = 0;
 
 //Add event listeners for buttons
 rockButton.addEventListener('click', function() {
@@ -40,6 +41,9 @@ function cpuPlay(){
 
 function playRound(playerSelection){
     let cpuSelection = cpuPlay();
+
+    //Change Image
+    changeImage(playerSelection, cpuSelection);
 
     if(playerSelection == 'Rock'){
         if(cpuSelection == 'Rock') resultsDisplay.innerText = "Tie!";
@@ -78,6 +82,33 @@ function playRound(playerSelection){
             cpuScore.innerText = `CPU: ${cpuWins}`;
         }
     }
+
+    round++;
+
+    // Remove the img element after every round except this first 
+    if(round != 0) {
+        playerImgContainer.removeChild(playerImgContainer.firstChild);
+        cpuImgContainer.removeChild(cpuImgContainer.firstChild);
+    }
+}
+
+function changeImage(playerSelection, cpuSelection){
+    // Create img elements
+    const playerChoiceImage = document.createElement("img");
+    const cpuChoiceImage = document.createElement("img");
+
+    // Add corresponding images
+    if(playerSelection == "Rock") playerChoiceImage.src = "./images/stone.png";
+    else if(playerSelection == "Paper") playerChoiceImage.src = "./images/paper.png";
+    else if(playerSelection == "Scissors") playerChoiceImage.src = "./images/scissors.png";
+
+    if(cpuSelection == "Rock") cpuChoiceImage.src = "./images/stone.png";
+    else if(cpuSelection == "Paper") cpuChoiceImage.src = "./images/paper.png";
+    else if(cpuSelection == "Scissors") cpuChoiceImage.src = "./images/scissors.png";
+
+    // Append image to appropriate img container
+    playerImgContainer.appendChild(playerChoiceImage);
+    cpuImgContainer.appendChild(cpuChoiceImage);
 }
 
 function determineWinner(playerWins, cpuWins) {
