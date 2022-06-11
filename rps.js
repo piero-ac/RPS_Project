@@ -9,12 +9,17 @@ const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
 
 // Game and Match Results Display
-const resultsDisplay = document.querySelector("#results-container").firstChild();
+const resultsDisplay = document.querySelector("#results-container").firstChild;
 
 // Buttons for Choices
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
+
+//Add event listeners for buttons
+rockButton.addEventListener('click', playRound(rockButton.value, computerPlay));
+paperButton.addEventListener('click', playRound(paperButton.value, computerPlay));
+scissorsButton.addEventListener('click', playRound(scissorsButton.value, computerPlay));
 
 // function return a choice between rock, paper, or scissors
 function computerPlay(){
@@ -24,7 +29,6 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase();
 
     // 0 : tie, 1 : player wins, -1 : computer wins
     if(playerSelection == 'rock'){
