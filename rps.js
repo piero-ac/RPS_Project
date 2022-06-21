@@ -19,7 +19,7 @@ const scissorsButton = document.querySelector("#scissors");
 // Counters
 let playerWins = 0;
 let cpuWins = 0;
-let round = 0;
+
 
 //Add event listeners for buttons
 rockButton.addEventListener('click', function() {
@@ -80,9 +80,18 @@ function playRound(playerSelection){
         }
     }
 
-    //Change Image
+    // Change Image Based on Player and CPU selection
     changeImage(playerSelection, cpuSelection);
-    round++;
+    
+    // Check if one of the players has reached 5 points
+    if(determineWinner(playerWins, cpuWins)){
+        // Wait one second before displaying game over message
+        const gameOverTimeout = setTimeout(function() {
+            alert("Game Over! Make a new choice to begin a new game!");
+            reset();
+        }, 1000); 
+    }
+
 }
 
 function changeImage(playerSelection, cpuSelection){
@@ -98,33 +107,47 @@ function changeImage(playerSelection, cpuSelection){
 }
 
 function determineWinner(playerWins, cpuWins) {
-    if(playerWins > cpuWins) return "Player wins the game!";
-    else if(cpuWins > playerWins) return "cpu wins the game!";
-    else return "Game ends in a Tie!";
+    if(playerWins == 5) {
+        resultsDisplay.innerText = "Player WINS!";
+        return true;
+    } else if(cpuWins == 5){
+        resultsDisplay.innerText = "CPU WINS!";
+        return true;
+    } 
+    else return false;
 }
 
-function game(){
+function reset(){
+    playerWins = 0;
+    cpuWins = 0;
+    playerScore.innerText = `You: ${playerWins}`;
+    cpuScore.innerText = `CPU: ${cpuWins}`;
+    playerImgContainer.src = "./images/question-mark.png";
+    cpuImgContainer.src = "./images/question-mark.png";
+    resultsDisplay.innerText = "MAKE A CHOICE TO BEGIN GAME";
+}
+// function game(){
 
-    // Count each player's wins
-    let playerWins = 0;
-    let cpuWins = 0;
+//     // Count each player's wins
+//     let playerWins = 0;
+//     let cpuWins = 0;
 
-    for(let i = 1; i <= 5; i++){
-        console.log(`Round ${i}`); // Display round number
-        let input = prompt("Enter a choice: ");
-        let result = playRound(input, cpuPlay());
+//     for(let i = 1; i <= 5; i++){
+//         console.log(`Round ${i}`); // Display round number
+//         let input = prompt("Enter a choice: ");
+//         let result = playRound(input, cpuPlay());
         
-        console.log(result[0]); //Display the result
+//         console.log(result[0]); //Display the result
 
-        // Determine the round winner
-        if(result[1] == 1) playerWins++;
-        else if(result[1] == -1) cpuWins++;
-        else continue;
-    }
+//         // Determine the round winner
+//         if(result[1] == 1) playerWins++;
+//         else if(result[1] == -1) cpuWins++;
+//         else continue;
+//     }
 
-    // Determine the game winner
-    console.log("***Game Results***")
-    console.log(determineWinner(playerWins, cpuWins));
-}
+//     // Determine the game winner
+//     console.log("***Game Results***")
+//     console.log(determineWinner(playerWins, cpuWins));
+// }
 
 
