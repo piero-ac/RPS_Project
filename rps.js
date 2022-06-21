@@ -126,28 +126,3 @@ function reset(){
     cpuImgContainer.src = "./images/question-mark.png";
     resultsDisplay.innerText = "MAKE A CHOICE TO BEGIN GAME";
 }
-// function game(){
-
-//     // Count each player's wins
-//     let playerWins = 0;
-//     let cpuWins = 0;
-
-//     for(let i = 1; i <= 5; i++){
-//         console.log(`Round ${i}`); // Display round number
-//         let input = prompt("Enter a choice: ");
-//         let result = playRound(input, cpuPlay());
-        
-//         console.log(result[0]); //Display the result
-
-//         // Determine the round winner
-//         if(result[1] == 1) playerWins++;
-//         else if(result[1] == -1) cpuWins++;
-//         else continue;
-//     }
-
-//     // Determine the game winner
-//     console.log("***Game Results***")
-//     console.log(determineWinner(playerWins, cpuWins));
-// }
-
-
