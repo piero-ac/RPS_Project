@@ -53,6 +53,7 @@ header > h1 {
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
+    padding: 5px;
 }
 .img-container img {
     width: 100%;
