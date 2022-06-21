@@ -1,15 +1,15 @@
 const choices = ['Rock', 'Paper', 'Scissors'];
 
 // Image Containers
-const playerImgContainer = document.querySelector("#player-img-container");
-const cpuImgContainer = document.querySelector("#cpu-img-container");
+const playerImgContainer = document.querySelector("#player-img");
+const cpuImgContainer = document.querySelector("#cpu-img");
 
 // Score Displays
 const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
 
 // Game and Match Results Display
-const resultsDisplay = document.querySelector("#results-container").firstChild;
+const resultsDisplay = document.querySelector("#results-container").firstElementChild;
 
 // Buttons for Choices
 const rockButton = document.querySelector("#rock");
@@ -41,9 +41,6 @@ function cpuPlay(){
 
 function playRound(playerSelection){
     let cpuSelection = cpuPlay();
-
-    //Change Image
-    changeImage(playerSelection, cpuSelection);
 
     if(playerSelection == 'Rock'){
         if(cpuSelection == 'Rock') resultsDisplay.innerText = "Tie!";
@@ -83,32 +80,21 @@ function playRound(playerSelection){
         }
     }
 
+    //Change Image
+    changeImage(playerSelection, cpuSelection);
     round++;
-
-    // Remove the img element after every round except this first 
-    if(round != 0) {
-        playerImgContainer.removeChild(playerImgContainer.firstChild);
-        cpuImgContainer.removeChild(cpuImgContainer.firstChild);
-    }
 }
 
 function changeImage(playerSelection, cpuSelection){
-    // Create img elements
-    const playerChoiceImage = document.createElement("img");
-    const cpuChoiceImage = document.createElement("img");
 
     // Add corresponding images
-    if(playerSelection == "Rock") playerChoiceImage.src = "./images/stone.png";
-    else if(playerSelection == "Paper") playerChoiceImage.src = "./images/paper.png";
-    else if(playerSelection == "Scissors") playerChoiceImage.src = "./images/scissors.png";
+    if(playerSelection == "Rock") playerImgContainer.src = "./images/stone.png";
+    else if(playerSelection == "Paper") playerImgContainer.src = "./images/paper.png";
+    else if(playerSelection == "Scissors") playerImgContainer.src = "./images/scissors.png";
 
-    if(cpuSelection == "Rock") cpuChoiceImage.src = "./images/stone.png";
-    else if(cpuSelection == "Paper") cpuChoiceImage.src = "./images/paper.png";
-    else if(cpuSelection == "Scissors") cpuChoiceImage.src = "./images/scissors.png";
-
-    // Append image to appropriate img container
-    playerImgContainer.appendChild(playerChoiceImage);
-    cpuImgContainer.appendChild(cpuChoiceImage);
+    if(cpuSelection == "Rock") cpuImgContainer.src = "./images/stone.png";
+    else if(cpuSelection == "Paper") cpuImgContainer.src = "./images/paper.png";
+    else if(cpuSelection == "Scissors") cpuImgContainer.src = "./images/scissors.png";
 }
 
 function determineWinner(playerWins, cpuWins) {
