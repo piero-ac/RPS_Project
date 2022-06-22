@@ -97,13 +97,13 @@ function playRound(playerSelection){
 function changeImage(playerSelection, cpuSelection){
 
     // Add corresponding images
-    if(playerSelection == "Rock") playerImgContainer.src = "./images/stone.png";
-    else if(playerSelection == "Paper") playerImgContainer.src = "./images/paper.png";
-    else if(playerSelection == "Scissors") playerImgContainer.src = "./images/scissors.png";
+    if(playerSelection == "Rock") playerImgContainer.src = "images/stone.png";
+    else if(playerSelection == "Paper") playerImgContainer.src = "images/paper.png";
+    else if(playerSelection == "Scissors") playerImgContainer.src = "images/scissors.png";
 
-    if(cpuSelection == "Rock") cpuImgContainer.src = "./images/stone.png";
-    else if(cpuSelection == "Paper") cpuImgContainer.src = "./images/paper.png";
-    else if(cpuSelection == "Scissors") cpuImgContainer.src = "./images/scissors.png";
+    if(cpuSelection == "Rock") cpuImgContainer.src = "images/stone.png";
+    else if(cpuSelection == "Paper") cpuImgContainer.src = "images/paper.png";
+    else if(cpuSelection == "Scissors") cpuImgContainer.src = "images/scissors.png";
 }
 
 function determineWinner(playerWins, cpuWins) {
@@ -122,7 +122,7 @@ function reset(){
     cpuWins = 0;
     playerScore.innerText = `You: ${playerWins}`;
     cpuScore.innerText = `CPU: ${cpuWins}`;
-    playerImgContainer.src = "./images/question-mark.png";
-    cpuImgContainer.src = "./images/question-mark.png";
+    playerImgContainer.src = "images/question-mark.png";
+    cpuImgContainer.src = "images/question-mark.png";
     resultsDisplay.innerText = "MAKE A CHOICE TO BEGIN GAME";
 }
